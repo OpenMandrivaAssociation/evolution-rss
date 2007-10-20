@@ -1,7 +1,7 @@
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
 Version:	0.0.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Networking/News
 License:	GPLv2
 URL:		http://mips.edu.ms/evo/index.php/Evolution_RSS_Reader_Plugin
