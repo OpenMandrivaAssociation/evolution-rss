@@ -34,4 +34,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/evolution/*/plugins/*
 %{_datadir}/evolution/*/errors/*
 %{_datadir}/evolution/*/images/*
-%{_datadir}/evolution/gloade/*.glade
+%{_datadir}/evolution/glade/*.glade
