@@ -38,7 +38,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS FAQ NEWS README TODO
 %{_libdir}/bonobo/servers/*.server
-%{_libdir}/evolution/%{evomajor}/plugins/*
-%{_datadir}/evolution/%{evomajor}/errors/*
-%{_datadir}/evolution/%{evomajor}/images/*
-#%{_datadir}/evolution/glade/*.glade
+%{_libdir}/evolution/%{evomajor}/*/*
+%{_datadir}/evolution/%{evomajor}/*/*
