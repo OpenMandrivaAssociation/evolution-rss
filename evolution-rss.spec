@@ -41,4 +41,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/evolution/%{evomajor}/plugins/*
 %{_datadir}/evolution/%{evomajor}/errors/*
 %{_datadir}/evolution/%{evomajor}/images/*
-%{_datadir}/evolution/glade/*.glade
+#%{_datadir}/evolution/glade/*.glade
