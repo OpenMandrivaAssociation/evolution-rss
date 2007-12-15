@@ -25,6 +25,12 @@ This plugin enables support for RSS feeds in evolution mail.
 %configure2_5x
 %make
 
+%post
+%post_install_gconf_schemas %name
+
+%preun
+%preun_uninstall_gconf_schemas %name
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
@@ -37,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS FAQ NEWS README TODO
+%{_sysconfdir}/gconf/schemas/*.schemas
+%{_bindir}/*
 %{_libdir}/bonobo/servers/*.server
 %{_libdir}/evolution/%{evomajor}/*/*
 %{_datadir}/evolution/%{evomajor}/*/*
