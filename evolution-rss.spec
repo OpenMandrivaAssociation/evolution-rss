@@ -4,12 +4,12 @@
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
-Version:	0.0.7
+Version:	0.0.8
 Release:	%mkrel 1
 Group:		Networking/News
-License:	GPLv2
-URL:		http://mips.edu.ms/evo/index.php/Evolution_RSS_Reader_Plugin
-Source0:	http://mips.edu.ms/%{name}-%{version}.tar.gz
+License:	GPLv2+
+URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
+Source0:	http://gnome.eu.org/%name-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= %{evomajor_unstable}
 Requires:	evolution >= %evomajor_unstable
