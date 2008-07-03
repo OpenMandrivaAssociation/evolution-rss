@@ -4,7 +4,7 @@
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
-Version:	0.0.8
+Version:	0.1.0
 Release:	%mkrel 1
 Group:		Networking/News
 License:	GPLv2+
