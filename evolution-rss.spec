@@ -1,6 +1,7 @@
 %define evomajor 2.22
 %define evomajor_next 2.23
 %define evomajor_unstable 2.21
+%define firefox_version %(rpm -q mozilla-firefox --queryformat %{VERSION})
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
@@ -12,8 +13,10 @@ URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= %{evomajor_unstable}
+BuildRequires:	mozilla-firefox-devel
 Requires:	evolution >= %evomajor_unstable
 Requires:	evolution < %evomajor_next
+Requires:	%mklibname mozilla-firefox %firefox_version
 
 %description
 This plugin enables support for RSS feeds in evolution mail.
