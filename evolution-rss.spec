@@ -1,7 +1,9 @@
-%define evomajor 2.22
-%define evomajor_next 2.23
-%define evomajor_unstable 2.21
+%define evomajor %(pkg-config evolution-shell --variable=execversion)
+%define evominor %(echo %evomajor|awk -F. '{print $2}')
+%define evounstable %(echo 2.$((%evominor-1)))
+%define evonextmajor %(echo 2.$((%evominor+1)))
 %define firefox_version %(rpm -q mozilla-firefox --queryformat %{VERSION})
+%define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
@@ -12,10 +14,10 @@ License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires:	evolution-devel >= %{evomajor_unstable}
+BuildRequires:	evolution-devel >= %evounstable
+Requires:	evolution >= %evounstable
+Requires:	evolution < %evonextmajor
 BuildRequires:	mozilla-firefox-devel
-Requires:	evolution >= %evomajor_unstable
-Requires:	evolution < %evomajor_next
 Requires:	%mklibname mozilla-firefox %firefox_version
 
 %description
@@ -25,7 +27,7 @@ This plugin enables support for RSS feeds in evolution mail.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %post
@@ -49,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
 %{_libdir}/bonobo/servers/*.server
-%{_libdir}/evolution/%{evomajor}/*/*
+%{evoplugindir}/*
 %{_datadir}/evolution/%{evomajor}/*/*
