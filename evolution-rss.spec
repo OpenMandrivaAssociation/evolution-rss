@@ -2,13 +2,13 @@
 %define evominor %(echo %evomajor|awk -F. '{print $2}')
 %define evounstable %(echo 2.$((%evominor-1)))
 %define evonextmajor %(echo 2.$((%evominor+1)))
-%define firefox_version %(rpm -q mozilla-firefox --queryformat %{VERSION})
+%define xulrunner_version %(pkg-config --modversion libxul-embedding)
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
 Version:	0.1.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
@@ -17,8 +17,8 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= %evounstable
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
-BuildRequires:	mozilla-firefox-devel
-Requires:	%mklibname mozilla-firefox %firefox_version
+BuildRequires:	xulrunner-devel-unstable
+Requires:	%mklibname xulrunner %xulrunner_version
 
 %description
 This plugin enables support for RSS feeds in evolution mail.
