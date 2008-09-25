@@ -21,7 +21,7 @@ Patch4: 64_glue-shutdown.patch
 Patch5: 65_firefox-import.patch
 Patch6: 66_from_svn_add_evo_23_support.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires:	evolution-devel >= %evounstable
+BuildRequires:	evolution-devel >= 2.4.1
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
 BuildRequires:	xulrunner-devel-unstable
