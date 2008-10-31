@@ -17,6 +17,7 @@ BuildRequires:	evolution-devel >= 2.4.1
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
 BuildRequires:	webkitgtk-devel
+BuildRequires:	intltool
 
 %description
 This plugin enables support for RSS feeds in evolution mail.
