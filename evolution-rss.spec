@@ -4,14 +4,10 @@
 %define evonextmajor %(echo 2.$((%evominor+1)))
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
-%define xulrunner 1.9
-%define xullibname %mklibname xulrunner %xulrunner
-%define xulver %(rpm -q --queryformat %%{VERSION} %xullibname)
-
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
 Version:	0.1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
@@ -20,8 +16,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
-BuildRequires:	xulrunner-devel-unstable
-Requires:	%xullibname = %xulver
+BuildRequires:	webkitgtk-devel
 
 %description
 This plugin enables support for RSS feeds in evolution mail.
@@ -30,7 +25,7 @@ This plugin enables support for RSS feeds in evolution mail.
 %setup -q
 
 %build
-%configure2_5x --disable-schemas-install --with-primary-render=gecko
+%configure2_5x --disable-schemas-install --disable-gecko --with-primary-render=webkit
 %make
 
 %if %mdkversion < 200900
