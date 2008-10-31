@@ -10,19 +10,12 @@
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
-Version:	0.1.0
-Release:	%mkrel 6
+Version:	0.1.2
+Release:	%mkrel 1
 Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version.tar.gz
-Patch0: 60_startup-glue.patch
-Patch1: 61_allow-libxul-embedding.patch
-Patch2: 62_undef-gecko-home.patch
-Patch3: 63_set-profile-path-after-init.patch
-Patch4: 64_glue-shutdown.patch
-Patch5: 65_firefox-import.patch
-Patch6: 66_from_svn_add_evo_23_support.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
 Requires:	evolution >= %evounstable
@@ -35,13 +28,6 @@ This plugin enables support for RSS feeds in evolution mail.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p0
-%patch5 -p0
-%patch6 -p1
 
 %build
 %configure2_5x --disable-schemas-install --with-primary-render=gecko
