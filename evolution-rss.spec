@@ -4,10 +4,12 @@
 %define evonextmajor %(echo 2.$((%evominor+1)))
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
+%define Werror_cflags %nil
+
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
 Version:	0.1.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
