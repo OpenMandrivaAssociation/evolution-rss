@@ -14,8 +14,11 @@ Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version.tar.gz
+Patch0:		evolution-rss-0.1.2-fix-gtkhtml-flags.patch
+Patch1:		evolution-rss-0.1.2-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
+BuildRequires:	gtkhtml-3.14-devel
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
 BuildRequires:	webkitgtk-devel
@@ -26,8 +29,11 @@ This plugin enables support for RSS feeds in evolution mail.
 
 %prep
 %setup -q
+%patch0 -p0 -b .pkgconfig
+%patch1 -p0
 
 %build
+autoreconf -fi
 %configure2_5x --disable-schemas-install --disable-gecko --with-primary-render=webkit
 %make
 
