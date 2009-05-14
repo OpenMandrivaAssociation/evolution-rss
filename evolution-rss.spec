@@ -19,6 +19,8 @@ Patch1:		evolution-rss-0.1.2-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
 BuildRequires:	gtkhtml-3.14-devel
+#gw libtool dep:
+BuildRequires:	gnome-pilot-devel
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
 BuildRequires:	webkitgtk-devel
