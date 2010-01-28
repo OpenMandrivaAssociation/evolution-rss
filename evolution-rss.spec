@@ -5,32 +5,36 @@
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
 %define Werror_cflags %nil
+%define gitdate git20100128
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
-Version:	0.1.4
-Release:	%mkrel 1
+Version:	0.1.9
+Release:	%mkrel -c %gitdate 1
 Group:		Networking/News
 License:	GPLv2+
 URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
-Source0:	http://gnome.eu.org/%name-%version.tar.gz
+Source0:	http://gnome.eu.org/%name-%version-%gitdate.tar.bz2
+Patch0:		evolution-rss-0.1.9-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
-BuildRequires:	gtkhtml-3.14-devel
+BuildRequires:	gtkhtml-3.14-devel >= 3.18.3
 #gw libtool dep:
 BuildRequires:	gnome-pilot-devel
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
 BuildRequires:	webkitgtk-devel
-BuildRequires:	intltool
+BuildRequires:	intltool gnome-common
 
 %description
 This plugin enables support for RSS feeds in evolution mail.
 
 %prep
-%setup -q
+%setup -qn %name
+%patch0 -p0
 
 %build
+NOCONFIGURE=yes gnome-autogen.sh
 %configure2_5x --disable-schemas-install --disable-gecko --with-primary-render=webkit
 %make
 
@@ -56,6 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS FAQ NEWS README TODO
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
-%{_libdir}/bonobo/servers/*.server
 %{evoplugindir}/*
 %{_datadir}/evolution/%{evomajor}/*/*
