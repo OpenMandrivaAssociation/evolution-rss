@@ -4,7 +4,6 @@
 %define evonextmajor %(echo 2.$((%evominor+1)))
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
-%define Werror_cflags %nil
 %define gitdate git20100128
 
 Summary:	RSS Reader for Evolution Mail
@@ -20,6 +19,7 @@ Patch1:		evolution-rss-fix-build-with-gtk2.19.7.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
 BuildRequires:	gtkhtml-3.14-devel >= 3.18.3
+BuildRequires:	libglade2.0-devel
 #gw libtool dep:
 BuildRequires:	gnome-pilot-devel
 Requires:	evolution >= %evounstable
