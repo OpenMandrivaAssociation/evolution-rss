@@ -20,6 +20,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
 BuildRequires:	gtkhtml-3.14-devel >= 3.18.3
 BuildRequires:	libglade2.0-devel
+BuildRequires:	libcanberra-devel
 #gw libtool dep:
 BuildRequires:	gnome-pilot-devel
 Requires:	evolution >= %evounstable
