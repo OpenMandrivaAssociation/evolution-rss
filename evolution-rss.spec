@@ -4,11 +4,11 @@
 %define evonextmajor %(echo 2.$((%evominor+1)))
 %define evoplugindir %(pkg-config evolution-plugin --variable=plugindir)
 
-%define gitdate git20100429
+%define gitdate git20101002
 
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
-Version:	0.1.9
+Version:	0.2.1
 Release:	%mkrel -c %gitdate 1
 Group:		Networking/News
 License:	GPLv2+
@@ -16,14 +16,15 @@ URL:		http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version-%gitdate.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	evolution-devel >= 2.4.1
-BuildRequires:	gtkhtml-3.14-devel >= 3.18.3
-BuildRequires:	libglade2.0-devel
-BuildRequires:	libcanberra-devel
-#gw libtool dep:
-BuildRequires:	gnome-pilot-devel
+BuildRequires:	libGConf2-devel
+BuildRequires:	gtk+2-devel >= 2.12.0
+BuildRequires:	dbus-glib-devel
+BuildRequires:	libgnomecanvas2-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	libsoup-2.4-devel >= 2.2
+BuildRequires:	webkitgtk-devel
 Requires:	evolution >= %evounstable
 Requires:	evolution < %evonextmajor
-BuildRequires:	webkitgtk-devel
 BuildRequires:	intltool gnome-common
 
 %description
