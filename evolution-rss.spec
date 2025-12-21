@@ -13,6 +13,11 @@ License:	GPLv2+
 URL:		https://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
 Source0:	http://gnome.eu.org/%name-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	evolution-devel >= 2.4.1
 BuildRequires:	libGConf2-devel GConf2
 BuildRequires:	gtk+2-devel >= 2.12.0
