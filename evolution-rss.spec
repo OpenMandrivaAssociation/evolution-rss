@@ -7,7 +7,7 @@
 Summary:	RSS Reader for Evolution Mail
 Name:		evolution-rss
 Version:	0.2.5
-Release:	%mkrel 2
+Release:	3
 Group:		Networking/News
 License:	GPLv2+
 URL:		https://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin
